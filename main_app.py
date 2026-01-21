@@ -16,7 +16,7 @@ def mark_attendance(name, dept):
     cursor = conn.cursor()
     now = datetime.now()
     
-    # Check: Kya pichle 5 min mein iski entry hui hai?
+
     five_mins_ago = (now - timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M:%S')
     cursor.execute("SELECT * FROM attendance WHERE name = ? AND timestamp > ?", (name, five_mins_ago))
     
@@ -87,3 +87,4 @@ while run:
     show_logs()
 
 camera.release()
+
