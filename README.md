@@ -1,53 +1,172 @@
-# CampusEye AI – Smart Campus Face-ID Attendance System
+<div align="center">
 
-A real-time, computer vision–based attendance system built as a **solo project** using Python.  
-The goal is to automate manual attendance through face recognition while keeping the system simple, modular, and practical.
+```
+ ██████╗ █████╗ ███╗   ███╗██████╗ ██╗   ██╗███████╗███████╗██╗   ██╗███████╗
+██╔════╝██╔══██╗████╗ ████║██╔══██╗██║   ██║██╔════╝██╔════╝╚██╗ ██╔╝██╔════╝
+██║     ███████║██╔████╔██║██████╔╝██║   ██║███████╗█████╗   ╚████╔╝ █████╗  
+██║     ██╔══██║██║╚██╔╝██║██╔═══╝ ██║   ██║╚════██║██╔══╝    ╚██╔╝  ██╔══╝  
+╚██████╗██║  ██║██║ ╚═╝ ██║██║     ╚██████╔╝███████║███████╗   ██║   ███████╗
+ ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝      ╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝
+```
 
-# 🚀 Features
-- Real-time face detection and recognition via webcam  
-- Automatic attendance logging with timestamps  
-- Anti-duplicate entry logic within a defined time window  
-- Streamlit-based dashboard for live monitoring  
-- Lightweight SQLite database for persistence  
+# 👁️ CampusEye AI
+### *Smart Campus Face-ID Attendance System*
 
-# 🛠 Tech Stack
-- **Language:** Python  
-- **Computer Vision:** OpenCV, `face_recognition` (dlib)  
-- **Database:** SQLite  
-- **UI:** Streamlit  
+<br/>
 
-# 📁 Project Structure
-```text
-student_db/        # Face image dataset for encoding (prototype-scale, privacy-safe)
-encoder.py         # Generates and serializes face encodings
-data_cleaner.py    # Preprocessing and cleanup of face image data
-db_init.py         # Initializes SQLite database schema
-main_app.py        # Real-time recognition, attendance logic, and Streamlit UI
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Working%20Prototype-22c55e?style=for-the-badge)
 
-⚙️ How It Works 
+<br/>
 
-- The system captures frames from a webcam, detects faces using OpenCV, generates 128-d face encodings using a dlib-based model, and compares them against stored encodings.
-- On a successful match, attendance is logged with a timestamp in an SQLite database and reflected live on a Streamlit dashboard.
+> **Automate. Recognize. Log.**  
+> *A real-time, computer vision–powered attendance system — built solo, from scratch.*
 
-📌 Current Status
-- Working prototype .
-- Tested on a limited dataset for demonstration purposes .
-- Runs locally .
-- Designed to scale to multiple users without architectural changes .
+---
 
-🚧 Limitations
-- Tested with a small dataset (privacy-safe prototype)
-- Basic anti-spoofing is not yet implemented
-- No cloud deployment in the current version
+</div>
 
-🔮 Planned Improvements
-- Liveness / anti-spoofing checks
-- Performance optimization for low-end devices
-- Cleaner deployment workflow
+<br/>
 
-🤖 AI Usage Disclosure
-- AI tools were used as a mentor/assistant for ideation and documentation support.
-- All core logic, system design, implementation, and debugging were done independently by me.
+## 🧠 What is CampusEye?
 
-👤 Author
--Developed independently by a 1st-year B.Tech (AI/ML) student.
+CampusEye AI is a **real-time face recognition attendance system** that eliminates manual roll-calls entirely. Built as an end-to-end solo project, it captures live webcam frames, identifies faces using a 128-dimensional encoding model, and logs attendance with timestamps — all reflected instantly on a live dashboard.
+
+No spreadsheets. No paper. No delays.
+
+<br/>
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| 🎯 **Real-time Detection** | Face detection and recognition via live webcam feed |
+| ✅ **Auto Attendance Logging** | Timestamps recorded automatically on every match |
+| 🔁 **Anti-Duplicate Logic** | Prevents repeated entries within a configurable time window |
+| 📊 **Live Dashboard** | Streamlit-powered UI for real-time monitoring |
+| 🗄️ **Persistent Storage** | Lightweight SQLite database — no setup overhead |
+
+<br/>
+
+---
+
+## 🛠️ Tech Stack
+
+```
+┌──────────────────────────────────────────────────────┐
+│                    CampusEye AI                      │
+├──────────────┬───────────────────────────────────────┤
+│  Language    │  Python 3.x                           │
+│  Vision      │  OpenCV + face_recognition (dlib)     │
+│  Database    │  SQLite                               │
+│  UI          │  Streamlit                            │
+└──────────────┴───────────────────────────────────────┘
+```
+
+<br/>
+
+---
+
+## 📁 Project Structure
+
+```
+CampusEye/
+│
+├── 📂 student_db/          # Face image dataset (privacy-safe, prototype scale)
+│
+├── 🔧 encoder.py           # Generates & serializes 128-d face encodings
+├── 🧹 data_cleaner.py      # Preprocessing & cleanup of image data
+├── 🗄️  db_init.py           # Initializes SQLite schema
+└── 🚀 main_app.py          # Core logic: recognition + attendance + Streamlit UI
+```
+
+<br/>
+
+---
+
+## ⚙️ How It Works
+
+```
+  📷 Webcam Frame
+       │
+       ▼
+  [ Face Detection ]  ◄── OpenCV
+       │
+       ▼
+  [ 128-d Encoding ]  ◄── dlib / face_recognition
+       │
+       ▼
+  [ Match Against DB ] ◄── Stored Encodings
+       │
+    ┌──┴──┐
+    │Match│
+    └──┬──┘
+       │
+       ▼
+  [ Log Attendance ]  ◄── SQLite (with timestamp + anti-duplicate check)
+       │
+       ▼
+  [ Streamlit Dashboard ] ◄── Live update
+```
+
+<br/>
+
+---
+
+## 📌 Current Status
+
+- ✅ Fully working prototype
+- ✅ Tested on a limited dataset for demonstration
+- ✅ Runs locally with no cloud dependency
+- ✅ Designed to scale to multiple users without architectural changes
+
+<br/>
+
+---
+
+## 🚧 Known Limitations
+
+- 🔬 Tested on a small dataset *(privacy-safe prototype)*
+- 🛡️ Basic anti-spoofing not yet implemented
+- ☁️ No cloud deployment in current version
+
+<br/>
+
+---
+
+## 🔮 Planned Improvements
+
+- [ ] **Liveness / Anti-Spoofing** — Prevent photo-based spoofing attacks
+- [ ] **Low-End Device Optimization** — Better performance on constrained hardware
+- [ ] **Streamlined Deployment** — Cleaner setup and deployment workflow
+
+<br/>
+
+---
+
+## 🤖 AI Usage Disclosure
+
+> AI tools were used **only** as a mentor and documentation assistant.  
+> All core logic, system design, implementation, and debugging were done **independently**.
+
+<br/>
+
+---
+
+## 👤 Author
+
+<div align="center">
+
+**Devanshu Raut**  
+*Solo Developer · CampusEye AI*
+
+---
+
+*Built with focus, curiosity, and a lot of webcam testing.* 👁️
+
+</div>
