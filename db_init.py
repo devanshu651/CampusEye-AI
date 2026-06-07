@@ -3,7 +3,8 @@ import sqlite3
 def init_db():
     conn = sqlite3.connect('campus_attendance.db')
     cursor = conn.cursor()
-    # Create table for attendance logs
+
+    # Create attendance table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS attendance (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -12,9 +13,11 @@ def init_db():
             timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     ''')
+
     conn.commit()
     conn.close()
-    print("✅ Database initialized successfully.")
+
+    print("Database initialized successfully.")
 
 if __name__ == "__main__":
     init_db()
